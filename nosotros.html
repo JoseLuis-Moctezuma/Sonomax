@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sobre Nosotros | SonoMax Audio – Mixquiahuala, Hidalgo</title>
+  <meta name="description" content="Conoce la historia y el equipo detrás de SonoMax Audio, especialistas en reparación de equipos de audio en Mixquiahuala de Juárez, Hidalgo."/>
+
+  <!-- Google Analytics – reemplaza G-XXXXXXXXXX con tu ID real -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --gold: #C9A84C;
+      --gold-light: #E8C97A;
+      --gold-dark: #8B6914;
+      --black: #0A0A0A;
+      --dark: #111111;
+      --dark2: #1A1A1A;
+      --dark3: #222222;
+      --white: #F5F0E8;
+      --gray: #888880;
+      --font-display: 'Playfair Display', serif;
+      --font-body: 'Barlow', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.3;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 5%;
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.6rem; font-weight: 900;
+      color: var(--gold); text-decoration: none;
+    }
+    .nav-logo span { color: var(--white); }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      color: var(--gray); text-decoration: none;
+      font-size: 0.85rem; font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; background: none; border: none; padding: 4px;
+    }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--gold); transition: 0.3s; }
+    @media(max-width:700px){
+      .hamburger { display: flex; }
+      .nav-links {
+        display: none; position: absolute; top: 100%; left: 0; right: 0;
+        background: var(--dark); flex-direction: column;
+        padding: 1.5rem 5%; gap: 1.2rem;
+        border-bottom: 1px solid rgba(201,168,76,0.15);
+      }
+      .nav-links.open { display: flex; }
+    }
+
+    /* PAGE HEADER */
+    .page-header {
+      padding: 10rem 5% 5rem;
+      background: linear-gradient(180deg, rgba(201,168,76,0.05) 0%, transparent 100%);
+      border-bottom: 1px solid rgba(201,168,76,0.1);
+      position: relative;
+      overflow: hidden;
+    }
+    .page-header::before {
+      content: 'NOSOTROS';
+      position: absolute;
+      right: -2%;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--font-display);
+      font-size: clamp(6rem, 14vw, 14rem);
+      font-weight: 900;
+      color: rgba(201,168,76,0.04);
+      white-space: nowrap;
+      pointer-events: none;
+      letter-spacing: -0.02em;
+    }
+    .page-tag {
+      font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1rem;
+    }
+    .page-header h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 900; line-height: 1.08;
+      max-width: 700px;
+    }
+    .page-header h1 em { font-style: italic; color: var(--gold); }
+
+    /* STORY */
+    .story { padding: 6rem 5%; }
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: start;
+    }
+    @media(max-width:768px){ .story-grid { grid-template-columns: 1fr; gap: 3rem; } }
+
+    .story-text p {
+      color: var(--gray); font-size: 1rem; line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+    .story-text p strong { color: var(--white); font-weight: 600; }
+
+    .story-quote {
+      border-left: 3px solid var(--gold);
+      padding: 1.2rem 1.5rem;
+      background: rgba(201,168,76,0.04);
+      margin: 2rem 0;
+    }
+    .story-quote p {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.2rem;
+      color: var(--white) !important;
+      margin: 0 !important;
+      line-height: 1.5;
+    }
+
+    .story-aside {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5px;
+      background: rgba(201,168,76,0.12);
+    }
+    .aside-block {
+      background: var(--dark);
+      padding: 2rem;
+    }
+    .aside-block:hover { background: var(--dark2); }
+    .aside-num {
+      font-family: var(--font-display);
+      font-size: 3rem; font-weight: 700;
+      color: var(--gold); line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .aside-block h4 {
+      font-size: 0.9rem; font-weight: 600;
+      margin-bottom: 0.5rem; letter-spacing: 0.05em;
+    }
+    .aside-block p {
+      color: var(--gray); font-size: 0.85rem; line-height: 1.6;
+    }
+
+    /* MISSION VISION */
+    .mv-section {
+      background: var(--dark2);
+      border-top: 1px solid rgba(201,168,76,0.1);
+      border-bottom: 1px solid rgba(201,168,76,0.1);
+      padding: 6rem 5%;
+    }
+    .mv-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5px;
+      background: rgba(201,168,76,0.12);
+      margin-top: 3rem;
+    }
+    @media(max-width:600px){ .mv-grid { grid-template-columns: 1fr; } }
+
+    .mv-card {
+      background: var(--dark2);
+      padding: 3rem 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .mv-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 3px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+    }
+    .mv-icon { font-size: 2.5rem; margin-bottom: 1.5rem; display: block; }
+    .mv-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.6rem; font-weight: 700;
+      margin-bottom: 1rem; color: var(--gold);
+    }
+    .mv-card p { color: var(--gray); font-size: 0.95rem; line-height: 1.75; }
+
+    /* VALUES */
+    .values-section { padding: 6rem 5%; }
+    .section-tag {
+      font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 700; line-height: 1.15;
+      margin-bottom: 3rem;
+    }
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 2rem;
+    }
+    .value-item {
+      padding: 2rem;
+      border: 1px solid rgba(201,168,76,0.12);
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .value-item:hover {
+      border-color: rgba(201,168,76,0.4);
+      background: rgba(201,168,76,0.03);
+    }
+    .value-icon {
+      font-size: 1.8rem; margin-bottom: 1rem; display: block;
+    }
+    .value-item h4 {
+      font-family: var(--font-display);
+      font-size: 1.1rem; font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
+    .value-item p { color: var(--gray); font-size: 0.87rem; line-height: 1.65; }
+
+    /* LOCATION */
+    .location-section {
+      background: var(--dark2);
+      border-top: 1px solid rgba(201,168,76,0.1);
+      padding: 5rem 5%;
+    }
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      margin-top: 3rem;
+    }
+    @media(max-width:768px){ .location-grid { grid-template-columns: 1fr; } }
+    .location-map {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: var(--dark3);
+      border: 1px solid rgba(201,168,76,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 1rem;
+      color: var(--gray);
+      font-size: 0.85rem;
+    }
+    .location-map span { font-size: 3rem; }
+
+    .location-info h3 {
+      font-family: var(--font-display);
+      font-size: 1.8rem; margin-bottom: 1.5rem;
+    }
+    .location-item {
+      display: flex; gap: 1rem;
+      margin-bottom: 1.2rem; align-items: flex-start;
+    }
+    .location-item .li-icon {
+      width: 36px; height: 36px;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.2);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-size: 0.9rem;
+    }
+    .location-item p { color: var(--gray); font-size: 0.9rem; line-height: 1.55; }
+    .location-item strong { color: var(--white); display: block; font-weight: 600; font-size: 0.85rem; margin-bottom: 0.2rem; }
+
+    /* CTA */
+    .cta-band {
+      background: linear-gradient(135deg, var(--dark2), var(--dark3));
+      border-top: 1px solid rgba(201,168,76,0.2);
+      border-bottom: 1px solid rgba(201,168,76,0.2);
+      padding: 5rem 5%; text-align: center;
+    }
+    .cta-band h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 700; margin-bottom: 1rem;
+    }
+    .cta-band p { color: var(--gray); margin-bottom: 2.5rem; font-size: 1rem; }
+    .btn-primary {
+      background: var(--gold); color: var(--black);
+      padding: 0.85rem 2.2rem; font-family: var(--font-body);
+      font-size: 0.85rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      text-decoration: none; display: inline-block;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+    /* FOOTER */
+    footer {
+      background: var(--dark);
+      border-top: 1px solid rgba(201,168,76,0.15);
+      padding: 3rem 5% 2rem;
+    }
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem; margin-bottom: 3rem;
+    }
+    @media(max-width:768px){ .footer-grid { grid-template-columns: 1fr; gap: 2rem; } }
+    .footer-brand h3 {
+      font-family: var(--font-display); font-size: 1.8rem;
+      font-weight: 900; color: var(--gold); margin-bottom: 0.8rem;
+    }
+    .footer-brand p { color: var(--gray); font-size: 0.88rem; line-height: 1.65; max-width: 300px; }
+    footer h4 {
+      font-size: 0.75rem; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem;
+    }
+    footer ul { list-style: none; }
+    footer ul li { margin-bottom: 0.6rem; }
+    footer ul a { color: var(--gray); text-decoration: none; font-size: 0.88rem; transition: color 0.3s; }
+    footer ul a:hover { color: var(--gold); }
+    .footer-contact p { color: var(--gray); font-size: 0.88rem; margin-bottom: 0.6rem; line-height: 1.5; }
+    .footer-bottom {
+      border-top: 1px solid rgba(201,168,76,0.1);
+      padding-top: 1.5rem; display: flex;
+      justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-bottom p { color: var(--gray); font-size: 0.78rem; }
+    .footer-creator { color: rgba(201,168,76,0.5); font-size: 0.75rem; text-align: right; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in { animation: fadeUp 0.7s ease forwards; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Sono<span>Max</span></a>
+    <button class="hamburger" id="ham" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="nosotros.html" class="active">Nosotros</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <header class="page-header">
+    <p class="page-tag fade-in">Nuestra historia</p>
+    <h1 class="fade-in">Somos <em>pasión</em><br/>por el sonido</h1>
+  </header>
+
+  <!-- STORY -->
+  <section class="story">
+    <div class="story-grid">
+      <div class="story-text">
+        <p>
+          <strong>SonoMax Audio</strong> nació en el corazón de la Colonia Morelos, en Mixquiahuala de Juárez, Hidalgo, de la mano de un técnico apasionado que desde joven desarmaba bocinas para entender cómo funcionaban. Lo que comenzó como un hobbie en un pequeño taller familiar se convirtió con los años en el negocio de reparación de audio más reconocido de la región.
+        </p>
+
+        <div class="story-quote">
+          <p>"Un equipo de audio bien reparado puede durar décadas más. No es solo electrónica; es música, recuerdos y emociones."</p>
+        </div>
+
+        <p>
+          A lo largo de más de una década, hemos atendido a cientos de clientes de Mixquiahuala y municipios vecinos del estado de Hidalgo. Desde la bocina de la sala familiar hasta el sistema de sonido de un negocio, cada equipo que llega a nuestro taller recibe la misma atención y cuidado que si fuera nuestro.
+        </p>
+        <p>
+          Nos especializamos en todo lo relacionado con la <strong>reproducción y amplificación de audio</strong>: bocinas domésticas, altavoces para auto, estéreos, amplificadores, minicomponentes y equipos Hi-Fi. Si hace sonido, nosotros lo reparamos.
+        </p>
+      </div>
+
+      <div class="story-aside">
+        <div class="aside-block">
+          <div class="aside-num">+10</div>
+          <h4>Años en el negocio</h4>
+          <p>Desde nuestros inicios en la Colonia Morelos hemos crecido gracias a la confianza de nuestra comunidad.</p>
+        </div>
+        <div class="aside-block">
+          <div class="aside-num">+500</div>
+          <h4>Equipos reparados</h4>
+          <p>Bocinas, estéreos, amplificadores y más, devueltos a la vida con técnica y dedicación.</p>
+        </div>
+        <div class="aside-block">
+          <div class="aside-num">100%</div>
+          <h4>Compromiso con el cliente</h4>
+          <p>Diagnóstico honesto, precios transparentes y garantía en cada reparación que realizamos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION & VISION -->
+  <section class="mv-section">
+    <p class="section-tag">Nuestros pilares</p>
+    <h2 class="section-title">Misión y Visión</h2>
+    <div class="mv-grid">
+      <div class="mv-card">
+        <span class="mv-icon">🎯</span>
+        <h3>Misión</h3>
+        <p>Brindar un servicio técnico especializado en audio de la más alta calidad a nuestra comunidad, devolviendo la funcionalidad y el sonido óptimo a los equipos de nuestros clientes con honestidad, responsabilidad y precios justos. Ser el aliado de confianza de cada hogar y negocio de Mixquiahuala cuando se trata de sonido.</p>
+      </div>
+      <div class="mv-card">
+        <span class="mv-icon">🔭</span>
+        <h3>Visión</h3>
+        <p>Convertirnos en el taller de audio de referencia en el estado de Hidalgo, reconocidos por nuestra excelencia técnica, trato personalizado y compromiso con la satisfacción del cliente. Expandir nuestros servicios para atender tanto a particulares como a negocios y eventos en toda la región.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="values-section">
+    <p class="section-tag">Lo que nos define</p>
+    <h2 class="section-title">Nuestros valores</h2>
+    <div class="values-grid">
+      <div class="value-item">
+        <span class="value-icon">🤝</span>
+        <h4>Honestidad</h4>
+        <p>Te decimos exactamente qué tiene tu equipo y cuánto cuesta antes de tocar nada. Sin sorpresas, sin cargos ocultos.</p>
+      </div>
+      <div class="value-item">
+        <span class="value-icon">⚙️</span>
+        <h4>Calidad técnica</h4>
+        <p>Usamos refacciones de calidad y técnicas probadas. Cada reparación se revisa a fondo antes de entregarte el equipo.</p>
+      </div>
+      <div class="value-item">
+        <span class="value-icon">❤️</span>
+        <h4>Pasión por el audio</h4>
+        <p>No es solo un trabajo: amamos lo que hacemos. Eso se nota en cada equipo que sale de nuestro taller.</p>
+      </div>
+      <div class="value-item">
+        <span class="value-icon">🌿</span>
+        <h4>Compromiso local</h4>
+        <p>Somos parte de la Colonia Morelos y de Mixquiahuala. Crecer junto a nuestra comunidad es nuestra mayor motivación.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATION -->
+  <section class="location-section">
+    <p class="section-tag">Dónde estamos</p>
+    <h2 class="section-title">Visítanos</h2>
+    <div class="location-grid">
+      <div class="location-map">
+        <span>📍</span>
+        <p>Colonia Morelos<br/>Mixquiahuala de Juárez, Hgo.</p>
+        <small style="opacity:0.5">(Integra aquí Google Maps con tu dirección exacta)</small>
+      </div>
+      <div class="location-info">
+        <h3>Encuéntranos fácilmente</h3>
+        <div class="location-item">
+          <div class="li-icon">📍</div>
+          <p><strong>Dirección</strong>Colonia Morelos, Mixquiahuala de Juárez, Hidalgo, México.</p>
+        </div>
+        <div class="location-item">
+          <div class="li-icon">📱</div>
+          <p><strong>WhatsApp</strong>+52 771 000 0000<br/>Escríbenos para consultas y citas.</p>
+        </div>
+        <div class="location-item">
+          <div class="li-icon">🕐</div>
+          <p><strong>Horario de atención</strong>Lunes a Sábado: 9:00 am – 7:00 pm<br/>Domingos: con cita previa.</p>
+        </div>
+        <div class="location-item">
+          <div class="li-icon">✉️</div>
+          <p><strong>Correo electrónico</strong>contacto@sonomaxaudio.com</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-band">
+    <h2>¿Listo para recuperar tu sonido?</h2>
+    <p>Visítanos o escríbenos. Estamos a tu disposición para cualquier consulta o diagnóstico.</p>
+    <a href="contacto.html" class="btn-primary">Contáctanos</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>SonoMax Audio</h3>
+        <p>Especialistas en reparación de bocinas, altavoces y estéreos en Mixquiahuala de Juárez, Hidalgo.</p>
+      </div>
+      <div>
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="nosotros.html">Sobre Nosotros</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contacto</h4>
+        <p>📍 Col. Morelos, Mixquiahuala de Juárez, Hgo.</p>
+        <p>📱 WhatsApp: +52 771 000 0000</p>
+        <p>✉️ contacto@sonomaxaudio.com</p>
+        <p>📘 /SonoMaxAudio</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 SonoMax Audio — Todos los derechos reservados.</p>
+      <p class="footer-creator">Diseño y desarrollo web: Jose Luis Davin Moctezuma Rivera</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('ham').addEventListener('click', () => {
+      document.getElementById('nav').classList.toggle('open');
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.aside-block, .mv-card, .value-item, .location-item').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
